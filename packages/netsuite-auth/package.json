@@ -28,5 +28,11 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6"
   }
 }
