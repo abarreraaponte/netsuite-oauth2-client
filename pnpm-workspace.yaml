@@ -1,5 +1,9 @@
 packages:
   - "packages/*"
+  - "samples/*"
+
+allowBuilds:
+  esbuild: true
 
 minimumReleaseAgeExclude:
   - "@yuku-parser/binding-darwin-arm64@0.6.12"

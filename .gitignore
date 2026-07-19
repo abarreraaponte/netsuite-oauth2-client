@@ -81,3 +81,12 @@ dist/
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# Local env files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
