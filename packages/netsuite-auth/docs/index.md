@@ -2,77 +2,35 @@
 
 `@kitledger/netsuite-auth` provides lightweight, enterprise-ready authentication clients for Oracle NetSuite integrations.
 
-It supports both:
-
-1. **OAuth 2.0 (Client Credentials / JWT Flow)**
-2. **OAuth 1.0a (Token-Based Authentication / TBA)**
+It is designed for functional/technical consultants, power users, and **autonomous AI agents**.
 
 ---
 
-## Installation
+## Supported Authentication Flows
 
-Add the package to your project:
+Choose the authentication guide that matches your integration setup:
 
-```bash
-pnpm add @kitledger/netsuite-auth
-```
+### 🔑 [OAuth 2.0 (Client Credentials)](/packages/netsuite-auth/client-credentials)
+
+For modern server-to-server integrations. This flow signs a JWT assertion with a private certificate to request short-lived access tokens from NetSuite.
+
+- [Getting Started](/packages/netsuite-auth/client-credentials#getting-started)
+- [Advanced Token Caching](/packages/netsuite-auth/caching)
+
+### 🔐 [OAuth 1.0a (Token-Based Authentication / TBA)](/packages/netsuite-auth/tba)
+
+The standard, time-tested authentication mechanism for NetSuite Restlets and SOAP/REST web services using dynamic HMAC-SHA256 signatures.
+
+- [Getting Started](/packages/netsuite-auth/tba#getting-started)
+- [Signature Verification](/packages/netsuite-auth/tba#advanced-usage)
 
 ---
 
-## Quick Start
+## 🤖 AI Agent Skill File
 
-### 1. Token-Based Authentication (TBA / OAuth 1.0a)
+This package natively bundles an **AI Agent Skill File** (`SKILL.md`) to help LLMs and coding assistants (like Antigravity, Claude Code, or Cursor) correctly import and write auth code:
 
-TBA is the standard, time-tested authentication mechanism for NetSuite Restlets and SOAP/REST web services.
+- **Location in package:** `skills/netsuite-auth/SKILL.md`
+- **View on GitHub:** [netsuite-auth/skills/netsuite-auth/SKILL.md](https://github.com/kitledger/kitledger/blob/main/packages/netsuite-auth/skills/netsuite-auth/SKILL.md)
 
-```typescript
-import { NetSuiteTBAClient } from "@kitledger/netsuite-auth/oauth1";
-// Or use the familiar alias:
-// import { NetSuiteTBAClient } from "@kitledger/netsuite-auth/tba";
-
-const tbaClient = new NetSuiteTBAClient({
-  accountId: "123456_SB1",
-  consumerKey: "YOUR_CONSUMER_KEY",
-  consumerSecret: "YOUR_CONSUMER_SECRET",
-  tokenId: "YOUR_TOKEN_ID",
-  tokenSecret: "YOUR_TOKEN_SECRET",
-});
-
-// Generate dynamic signed header
-const authHeader = tbaClient.getAuthorizationHeader(
-  "GET",
-  "https://123456-sb1.restlets.api.netsuite.com/services/restlet/custom/script",
-);
-```
-
-### 2. OAuth 2.0 Client Credentials Flow
-
-For modern server-to-server integrations. This flow requests short-lived access tokens from NetSuite using a JWT assertion signed with your private certificate.
-
-```typescript
-import { NetSuiteAuthClient, type TokenStorage } from "@kitledger/netsuite-auth/oauth2";
-
-// Implement a simple cache storage (e.g. in-memory)
-class SimpleStorage implements TokenStorage {
-  private cache = null;
-  async getToken() {
-    return this.cache;
-  }
-  async saveToken(token) {
-    this.cache = token;
-  }
-}
-
-const authClient = new NetSuiteAuthClient(
-  {
-    accountId: "123456_SB1",
-    consumerKey: "YOUR_CONSUMER_KEY",
-    consumerSecret: "YOUR_CONSUMER_SECRET",
-    certificateId: "YOUR_CERTIFICATE_ID",
-    privateKey: "YOUR_PRIVATE_PEM_KEY",
-  },
-  new SimpleStorage(),
-);
-
-const token = await authClient.getCurrentToken();
-```
+Agents can read this skill to automatically understand our subpath exports, token storage cache models, and header signature APIs.

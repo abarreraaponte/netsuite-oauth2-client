@@ -8,10 +8,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /docs/guide
+      link: /guide
     - theme: alt
       text: View API Docs
-      link: /api/index.html
+      link: /api/netsuite-auth/index.html
       target: _blank
 
 features:

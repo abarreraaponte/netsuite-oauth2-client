@@ -26,7 +26,7 @@ A lightweight auth package supporting:
 
 ## API Reference
 
-The complete API reference for all packages can be accessed [here](/api/index.html).
+The complete API reference for NetSuite Auth can be accessed [here](/api/netsuite-auth/index.html).
 
 ---
 

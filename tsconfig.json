@@ -10,5 +10,6 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true
-  }
+  },
+  "exclude": ["**/*.config.ts", "**/dist", "**/node_modules"]
 }

@@ -1,9 +1,10 @@
 {
   "name": "@kitledger/docs",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "generate-api": "typedoc --options ../typedoc.json",
+    "generate-api": "typedoc --out public/api/netsuite-auth ../packages/netsuite-auth/src/index.ts",
     "dev": "pnpm generate-api && vitepress dev",
     "build": "pnpm generate-api && vitepress build",
     "preview": "vitepress preview"

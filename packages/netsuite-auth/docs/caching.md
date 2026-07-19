@@ -1,4 +1,4 @@
-# Advanced Token Caching
+# Token Caching & Storage
 
 When using **OAuth 2.0 Client Credentials**, NetSuite access tokens are short-lived (usually expiring in 60 minutes). It is critical to cache the tokens to avoid making a token refresh HTTP request before every single API call.
 
@@ -90,3 +90,9 @@ export class PrismaTokenStorage implements TokenStorage {
   }
 }
 ```
+
+---
+
+## 🤖 AI Integration Notes
+
+For AI coding assistants, refer to the [netsuite-auth-skill](https://github.com/kitledger/kitledger/blob/main/packages/netsuite-auth/skills/netsuite-auth/SKILL.md) for caching structure implementations.

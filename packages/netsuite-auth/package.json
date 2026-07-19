@@ -1,6 +1,6 @@
 {
   "name": "@kitledger/netsuite-auth",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Authentication client for NetSuite, part of the kitledger toolchain",
   "keywords": [
     "auth",
@@ -13,7 +13,8 @@
   "license": "Apache-2.0",
   "author": "Alejandro Barrera Aponte",
   "files": [
-    "dist"
+    "dist",
+    "skills"
   ],
   "type": "module",
   "main": "./dist/index.mjs",
