@@ -5,6 +5,7 @@
   "packageOptions": {
     "entryPoints": ["src/index.ts"]
   },
+  "name": "Kitledger API Reference",
   "out": "api",
   "cleanOutputDir": true
 }
