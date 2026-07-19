@@ -1,0 +1,17 @@
+{
+  "name": "@kitledger/docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate-api": "typedoc --options ../typedoc.json",
+    "dev": "pnpm generate-api && vitepress dev",
+    "build": "pnpm generate-api && vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "typedoc": "^0.26.11",
+    "typescript": "npm:typescript@6",
+    "vitepress": "next",
+    "vue": "^3.4.0"
+  }
+}

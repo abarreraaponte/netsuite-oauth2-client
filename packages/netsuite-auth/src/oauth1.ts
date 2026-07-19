@@ -1,20 +1,43 @@
 import { createHmac, randomBytes } from "node:crypto";
 
+/**
+ * Configuration options for the NetSuite Token-Based Authentication (TBA) client.
+ */
 export interface NetSuiteTBAConfig {
+  /** The NetSuite Account ID (e.g., "123456" or "123456_SB1"). */
   accountId: string;
+  /** The Integration Consumer Key generated in NetSuite. */
   consumerKey: string;
+  /** The Integration Consumer Secret generated in NetSuite. */
   consumerSecret: string;
+  /** The Token ID generated for a specific user role. */
   tokenId: string;
+  /** The Token Secret generated for a specific user role. */
   tokenSecret: string;
 }
 
+/**
+ * NetSuite Token-Based Authentication (TBA) Client.
+ * Implements the OAuth 1.0a HMAC-SHA256 protocol required by NetSuite RESTlets and REST Web Services.
+ */
 export class NetSuiteTBAClient {
   private config: NetSuiteTBAConfig;
 
+  /**
+   * Creates a new NetSuite TBA authentication client.
+   * @param config The Token-Based Authentication configuration.
+   */
   constructor(config: NetSuiteTBAConfig) {
     this.config = config;
   }
 
+  /**
+   * Generates a fully formatted OAuth 1.0a Authorization header.
+   *
+   * @param method The HTTP method of the request (e.g., "GET", "POST").
+   * @param url The full URL destination of the NetSuite endpoint.
+   * @returns The complete OAuth header string suitable for the `Authorization` header.
+   */
   public getAuthorizationHeader(method: string, url: string): string {
     const timestamp = Math.floor(Date.now() / 1000).toString();
     const nonce = randomBytes(11).toString("hex");
