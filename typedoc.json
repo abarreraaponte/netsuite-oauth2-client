@@ -1,8 +1,0 @@
-{
-  "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["packages/netsuite-auth/src/index.ts"],
-  "name": "Kitledger API Reference",
-  "readme": "./README.md",
-  "out": "api",
-  "cleanOutputDir": true
-}

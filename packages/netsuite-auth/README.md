@@ -8,7 +8,7 @@ Enterprise-grade authentication clients for Oracle NetSuite, built for speed, po
 
 This package supports both modern server-to-server **OAuth 2.0 (Client Credentials)** flows and legacy **OAuth 1.0a (Token-Based Authentication / TBA)** flows. It is split into modular subpaths so you only import what your environment supports.
 
-### [Explore @kitledger/netsuite-auth API Reference](https://kitledger.github.io/kitledger/api/)
+### [Explore @kitledger/netsuite-auth API Reference](https://kitledger.github.io/kitledger/api/netsuite-auth/)
 
 ---
 

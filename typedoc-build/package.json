@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "typedoc --options ../typedoc.json"
+    "build": "typedoc --out ../api/netsuite-auth ../packages/netsuite-auth/src/index.ts --name \"@kitledger/netsuite-auth API Reference\" --readme ../packages/netsuite-auth/README.md"
   },
   "devDependencies": {
     "typedoc": "^0.26.11",
