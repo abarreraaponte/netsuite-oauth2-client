@@ -25,3 +25,29 @@ features:
     title: High-Performance
     details: Built with TypeScript 7, tsdown, and Rolldown for near-instant execution speeds and lightweight bundle footprints.
 ---
+
+<div class="home-code-section">
+
+## Quick Start
+
+Get authenticated with NetSuite using OAuth 2.0 Client Credentials in just a few lines of code:
+
+```typescript
+import { NetSuiteAuthClient } from "@kitledger/netsuite-auth/oauth2";
+
+const client = new NetSuiteAuthClient(
+  {
+    accountId: "123456_SB1",
+    consumerKey: "YOUR_CONSUMER_KEY",
+    consumerSecret: "YOUR_CONSUMER_SECRET",
+    certificateId: "YOUR_CERTIFICATE_ID",
+    privateKey: "YOUR_PEM_PRIVATE_KEY",
+  },
+  tokenStorage,
+);
+
+// Automatically requests new tokens when cached tokens expire
+const accessToken = await client.getCurrentToken();
+```
+
+</div>
