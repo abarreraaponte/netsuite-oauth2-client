@@ -22,6 +22,18 @@
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs"
+    },
+    "./oauth1": {
+      "types": "./dist/oauth1.d.mts",
+      "import": "./dist/oauth1.mjs"
+    },
+    "./tba": {
+      "types": "./dist/oauth1.d.mts",
+      "import": "./dist/oauth1.mjs"
+    },
+    "./oauth2": {
+      "types": "./dist/oauth2.d.mts",
+      "import": "./dist/oauth2.mjs"
     }
   },
   "scripts": {
