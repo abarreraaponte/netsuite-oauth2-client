@@ -1,0 +1,32 @@
+{
+  "name": "@kitledger/netsuite-auth",
+  "version": "1.0.0",
+  "description": "Authentication client for NetSuite, part of the kitledger toolchain",
+  "keywords": [
+    "auth",
+    "kitledger",
+    "netsuite",
+    "rest-api",
+    "suiteql",
+    "suitetalk"
+  ],
+  "license": "Apache-2.0",
+  "author": "Alejandro Barrera Aponte",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "clean": "rm -rf dist"
+  }
+}
