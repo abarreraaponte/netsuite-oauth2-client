@@ -1,0 +1,13 @@
+{
+  "name": "typedoc-build",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "typedoc --options ../typedoc.json"
+  },
+  "devDependencies": {
+    "typedoc": "^0.26.11",
+    "typescript": "npm:typescript@6"
+  }
+}

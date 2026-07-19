@@ -1,7 +1,7 @@
 packages:
   - "packages/*"
   - "samples/*"
-  - "docs"
+  - "typedoc-build"
 
 allowBuilds:
   esbuild: true

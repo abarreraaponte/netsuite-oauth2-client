@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <title>NetSuiteTBAClient | @kitledger/netsuite-auth</title>
+    <title>NetSuiteTBAConfig | @kitledger/netsuite-auth</title>
     <meta name="description" content="Documentation for @kitledger/netsuite-auth" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/style.css" />
@@ -52,26 +52,46 @@
         <div class="tsd-page-title">
           <ul class="tsd-breadcrumb">
             <li><a href="../modules.html">@kitledger/netsuite-auth</a></li>
-            <li><a href="NetSuiteTBAClient.html">NetSuiteTBAClient</a></li>
+            <li><a href="NetSuiteTBAConfig.html">NetSuiteTBAConfig</a></li>
           </ul>
-          <h1>Class NetSuiteTBAClient</h1>
+          <h1>Interface NetSuiteTBAConfig</h1>
         </div>
         <section class="tsd-panel tsd-comment">
           <div class="tsd-comment tsd-typography">
-            <p>
-              NetSuite Token-Based Authentication (TBA) Client. Implements the OAuth 1.0a
-              HMAC-SHA256 protocol required by NetSuite RESTlets and REST Web Services.
-            </p>
+            <p>Configuration options for the NetSuite Token-Based Authentication (TBA) client.</p>
           </div>
           <div class="tsd-comment tsd-typography"></div>
         </section>
+        <div class="tsd-signature">
+          <span class="tsd-signature-keyword">interface </span
+          ><span class="tsd-kind-interface">NetSuiteTBAConfig</span>
+          <span class="tsd-signature-symbol">{ </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteTBAConfig.html#accountId">accountId</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteTBAConfig.html#consumerKey">consumerKey</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteTBAConfig.html#consumerSecret"
+            >consumerSecret</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteTBAConfig.html#tokenId">tokenId</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteTBAConfig.html#tokenSecret">tokenSecret</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span class="tsd-signature-symbol"
+            >}</span
+          >
+        </div>
         <aside class="tsd-sources">
           <ul>
             <li>
               Defined in
               <a
-                href="https://github.com/kitledger/kitledger/blob/7a69f5a7b3bd7901bd6290c94e66027c7dbea9bf/packages/netsuite-auth/src/oauth1.ts#L23"
-                >oauth1.ts:23</a
+                href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth1.ts#L6"
+                >oauth1.ts:6</a
               >
             </li>
           </ul>
@@ -94,22 +114,32 @@
               </summary>
               <div class="tsd-accordion-details">
                 <section class="tsd-index-section">
-                  <h3 class="tsd-index-heading">Constructors</h3>
+                  <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
-                    <a href="NetSuiteTBAClient.html#constructor" class="tsd-index-link"
+                    <a href="NetSuiteTBAConfig.html#accountId" class="tsd-index-link"
                       ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                        <use href="../assets/icons.svg#icon-512"></use></svg
-                      ><span>constructor</span></a
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>account<wbr />Id</span></a
                     >
-                  </div>
-                </section>
-                <section class="tsd-index-section">
-                  <h3 class="tsd-index-heading">Methods</h3>
-                  <div class="tsd-index-list">
-                    <a href="NetSuiteTBAClient.html#getAuthorizationHeader" class="tsd-index-link"
+                    <a href="NetSuiteTBAConfig.html#consumerKey" class="tsd-index-link"
                       ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>get<wbr />Authorization<wbr />Header</span></a
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>consumer<wbr />Key</span></a
+                    >
+                    <a href="NetSuiteTBAConfig.html#consumerSecret" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>consumer<wbr />Secret</span></a
+                    >
+                    <a href="NetSuiteTBAConfig.html#tokenId" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>token<wbr />Id</span></a
+                    >
+                    <a href="NetSuiteTBAConfig.html#tokenSecret" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>token<wbr />Secret</span></a
                     >
                   </div>
                 </section>
@@ -118,177 +148,159 @@
           </section>
         </section>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
-          <summary class="tsd-accordion-summary" data-key="section-Constructors">
+          <summary class="tsd-accordion-summary" data-key="section-Properties">
             <h2>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <use href="../assets/icons.svg#icon-chevronDown"></use>
               </svg>
-              Constructors
+              Properties
             </h2>
           </summary>
           <section>
             <section class="tsd-panel tsd-member">
-              <a id="constructor" class="tsd-anchor"></a>
+              <a id="accountId" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
-                <span>constructor</span
-                ><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"
+                <span>account<wbr />Id</span
+                ><a href="#accountId" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
                 ></a>
               </h3>
-              <ul class="tsd-signatures">
-                <li class="tsd-signature tsd-anchor-link">
-                  <a id="constructor.new_NetSuiteTBAClient" class="tsd-anchor"></a
-                  ><span class="tsd-kind-constructor-signature"
-                    >new <wbr />Net<wbr />SuiteTBAClient</span
-                  ><span class="tsd-signature-symbol">(</span
-                  ><span class="tsd-kind-parameter">config</span
-                  ><span class="tsd-signature-symbol">)</span
-                  ><span class="tsd-signature-symbol">: </span
-                  ><a href="NetSuiteTBAClient.html" class="tsd-signature-type tsd-kind-class"
-                    >NetSuiteTBAClient</a
-                  ><a
-                    href="#constructor.new_NetSuiteTBAClient"
-                    aria-label="Permalink"
-                    class="tsd-anchor-icon"
-                    ><svg viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-anchor"></use></svg
-                  ></a>
-                </li>
-                <li class="tsd-description">
-                  <div class="tsd-comment tsd-typography">
-                    <p>Creates a new NetSuite TBA authentication client.</p>
-                  </div>
-                  <div class="tsd-parameters">
-                    <h4 class="tsd-parameters-title">Parameters</h4>
-                    <ul class="tsd-parameter-list">
-                      <li>
-                        <span
-                          ><span class="tsd-kind-parameter">config</span>:
-                          <a
-                            href="../interfaces/NetSuiteTBAConfig.html"
-                            class="tsd-signature-type tsd-kind-interface"
-                            >NetSuiteTBAConfig</a
-                          ></span
-                        >
-                        <div class="tsd-comment tsd-typography">
-                          <p>The Token-Based Authentication configuration.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                      </li>
-                    </ul>
-                  </div>
-                  <h4 class="tsd-returns-title">
-                    Returns
-                    <a href="NetSuiteTBAClient.html" class="tsd-signature-type tsd-kind-class"
-                      >NetSuiteTBAClient</a
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">account<wbr />Id</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The NetSuite Account ID (e.g., &quot;123456&quot; or &quot;123456_SB1&quot;).</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth1.ts#L8"
+                      >oauth1.ts:8</a
                     >
-                  </h4>
-                  <div class="tsd-comment tsd-typography"></div>
-                  <aside class="tsd-sources">
-                    <ul>
-                      <li>
-                        Defined in
-                        <a
-                          href="https://github.com/kitledger/kitledger/blob/7a69f5a7b3bd7901bd6290c94e66027c7dbea9bf/packages/netsuite-auth/src/oauth1.ts#L30"
-                          >oauth1.ts:30</a
-                        >
-                      </li>
-                    </ul>
-                  </aside>
-                </li>
-              </ul>
+                  </li>
+                </ul>
+              </aside>
             </section>
-          </section>
-        </details>
-        <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
-          <summary class="tsd-accordion-summary" data-key="section-Methods">
-            <h2>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <use href="../assets/icons.svg#icon-chevronDown"></use>
-              </svg>
-              Methods
-            </h2>
-          </summary>
-          <section>
             <section class="tsd-panel tsd-member">
-              <a id="getAuthorizationHeader" class="tsd-anchor"></a>
+              <a id="consumerKey" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
-                <span>get<wbr />Authorization<wbr />Header</span
-                ><a href="#getAuthorizationHeader" aria-label="Permalink" class="tsd-anchor-icon"
+                <span>consumer<wbr />Key</span
+                ><a href="#consumerKey" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
                 ></a>
               </h3>
-              <ul class="tsd-signatures">
-                <li class="tsd-signature tsd-anchor-link">
-                  <a id="getAuthorizationHeader.getAuthorizationHeader-1" class="tsd-anchor"></a
-                  ><span class="tsd-kind-call-signature">get<wbr />Authorization<wbr />Header</span
-                  ><span class="tsd-signature-symbol">(</span
-                  ><span class="tsd-kind-parameter">method</span>,
-                  <span class="tsd-kind-parameter">url</span
-                  ><span class="tsd-signature-symbol">)</span
-                  ><span class="tsd-signature-symbol">: </span
-                  ><span class="tsd-signature-type">string</span
-                  ><a
-                    href="#getAuthorizationHeader.getAuthorizationHeader-1"
-                    aria-label="Permalink"
-                    class="tsd-anchor-icon"
-                    ><svg viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-anchor"></use></svg
-                  ></a>
-                </li>
-                <li class="tsd-description">
-                  <div class="tsd-comment tsd-typography">
-                    <p>Generates a fully formatted OAuth 1.0a Authorization header.</p>
-                  </div>
-                  <div class="tsd-parameters">
-                    <h4 class="tsd-parameters-title">Parameters</h4>
-                    <ul class="tsd-parameter-list">
-                      <li>
-                        <span
-                          ><span class="tsd-kind-parameter">method</span>:
-                          <span class="tsd-signature-type">string</span></span
-                        >
-                        <div class="tsd-comment tsd-typography">
-                          <p>
-                            The HTTP method of the request (e.g., &quot;GET&quot;,
-                            &quot;POST&quot;).
-                          </p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                      </li>
-                      <li>
-                        <span
-                          ><span class="tsd-kind-parameter">url</span>:
-                          <span class="tsd-signature-type">string</span></span
-                        >
-                        <div class="tsd-comment tsd-typography">
-                          <p>The full URL destination of the NetSuite endpoint.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                      </li>
-                    </ul>
-                  </div>
-                  <h4 class="tsd-returns-title">
-                    Returns <span class="tsd-signature-type">string</span>
-                  </h4>
-                  <p>
-                    The complete OAuth header string suitable for the
-                    <code>Authorization</code> header.
-                  </p>
-                  <div class="tsd-comment tsd-typography"></div>
-                  <aside class="tsd-sources">
-                    <ul>
-                      <li>
-                        Defined in
-                        <a
-                          href="https://github.com/kitledger/kitledger/blob/7a69f5a7b3bd7901bd6290c94e66027c7dbea9bf/packages/netsuite-auth/src/oauth1.ts#L41"
-                          >oauth1.ts:41</a
-                        >
-                      </li>
-                    </ul>
-                  </aside>
-                </li>
-              </ul>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">consumer<wbr />Key</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The Integration Consumer Key generated in NetSuite.</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth1.ts#L10"
+                      >oauth1.ts:10</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="consumerSecret" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>consumer<wbr />Secret</span
+                ><a href="#consumerSecret" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">consumer<wbr />Secret</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The Integration Consumer Secret generated in NetSuite.</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth1.ts#L12"
+                      >oauth1.ts:12</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="tokenId" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>token<wbr />Id</span
+                ><a href="#tokenId" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">token<wbr />Id</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The Token ID generated for a specific user role.</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth1.ts#L14"
+                      >oauth1.ts:14</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="tokenSecret" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>token<wbr />Secret</span
+                ><a href="#tokenSecret" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">token<wbr />Secret</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The Token Secret generated for a specific user role.</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth1.ts#L16"
+                      >oauth1.ts:16</a
+                    >
+                  </li>
+                </ul>
+              </aside>
             </section>
           </section>
         </details>
@@ -415,30 +427,32 @@
             </summary>
             <div class="tsd-accordion-details">
               <details open class="tsd-accordion tsd-page-navigation-section">
-                <summary class="tsd-accordion-summary" data-key="tsd-otp-Constructors">
+                <summary class="tsd-accordion-summary" data-key="tsd-otp-Properties">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                  >Constructors
+                  >Properties
                 </summary>
                 <div>
-                  <a href="#constructor" class=""
+                  <a href="#accountId" class=""
                     ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-512"></use></svg
-                    ><span>constructor</span></a
-                  >
-                </div>
-              </details>
-              <details open class="tsd-accordion tsd-page-navigation-section">
-                <summary class="tsd-accordion-summary" data-key="tsd-otp-Methods">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                  >Methods
-                </summary>
-                <div>
-                  <a href="#getAuthorizationHeader" class=""
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>account<wbr />Id</span></a
+                  ><a href="#consumerKey" class=""
                     ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>get<wbr />Authorization<wbr />Header</span></a
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>consumer<wbr />Key</span></a
+                  ><a href="#consumerSecret" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>consumer<wbr />Secret</span></a
+                  ><a href="#tokenId" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>token<wbr />Id</span></a
+                  ><a href="#tokenSecret" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>token<wbr />Secret</span></a
                   >
                 </div>
               </details>

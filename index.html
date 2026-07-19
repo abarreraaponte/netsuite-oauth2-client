@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitledger - Business Integration Utilities</title>
+    <link rel="icon" href="./brand/icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-dark: #042f2e;
+        --color-main: #22c55e;
+        --color-bg: #021615;
+        --color-bg-alt: #042f2e;
+        --color-bg-elv: #064e4b;
+        --color-text: #e2e8f0;
+        --color-text-muted: #94a3b8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: "IBM Plex Mono", monospace;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        align-items: center;
+        padding: 40px 20px;
+      }
+
+      header {
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .brand-logo {
+        height: 70px;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--color-text);
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+      }
+
+      .tagline {
+        font-size: 16px;
+        color: var(--color-text-muted);
+        max-width: 600px;
+      }
+
+      main {
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        flex-grow: 1;
+      }
+
+      .section-title {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--color-main);
+        margin-bottom: 16px;
+        font-weight: 700;
+      }
+
+      .package-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .card {
+        background-color: var(--color-bg-alt);
+        border: 1px solid var(--color-bg-elv);
+        border-radius: 8px;
+        padding: 24px;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-main);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--color-main);
+      }
+
+      .card-version {
+        font-size: 12px;
+        background-color: var(--color-bg-elv);
+        padding: 2px 8px;
+        border-radius: 4px;
+        color: var(--color-text);
+      }
+
+      .card-desc {
+        font-size: 14px;
+        color: var(--color-text-muted);
+        margin-bottom: 20px;
+        flex-grow: 1;
+      }
+
+      .card-links {
+        display: flex;
+        gap: 20px;
+      }
+
+      .link-btn {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--color-text);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .link-btn:hover {
+        color: var(--color-main);
+        text-decoration: underline;
+      }
+
+      footer {
+        width: 100%;
+        max-width: 800px;
+        margin-top: 80px;
+        border-top: 1px solid var(--color-bg-elv);
+        padding-top: 24px;
+        text-align: center;
+        font-size: 12px;
+        color: var(--color-text-muted);
+      }
+
+      footer a {
+        color: var(--color-text);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: var(--color-main);
+        text-decoration: underline;
+      }
+
+      /* Small responsive adjust */
+      @media (max-width: 600px) {
+        body {
+          padding: 20px 15px;
+        }
+        header {
+          margin-bottom: 40px;
+        }
+        h1 {
+          font-size: 26px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="./brand/logo-wt.svg" alt="Kitledger Logo" class="brand-logo" />
+      <p class="tagline">
+        Modern utilities for business management platforms. Designed for functional & technical
+        consultants, power users, and autonomous AI agents.
+      </p>
+    </header>
+
+    <main>
+      <div>
+        <h2 class="section-title">Packages</h2>
+        <div class="package-grid">
+          <!-- NetSuite Auth -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <a
+                  href="https://github.com/kitledger/kitledger/blob/main/packages/netsuite-auth/README.md"
+                  target="_blank"
+                  style="color: inherit; text-decoration: none"
+                  >@kitledger/netsuite-auth</a
+                >
+              </h3>
+              <span class="card-version">TypeScript</span>
+            </div>
+            <p class="card-desc">
+              Lightweight, high-performance authentication clients for Oracle NetSuite, supporting
+              OAuth 2.0 (Client Credentials JWT assertion flow) and OAuth 1.0a (Token-Based
+              Authentication/TBA) subpath exports.
+            </p>
+            <div class="card-links" style="flex-wrap: wrap; gap: 16px 24px">
+              <a
+                href="https://github.com/kitledger/kitledger/blob/main/packages/netsuite-auth/README.md"
+                class="link-btn"
+                target="_blank"
+              >
+                📄 README
+              </a>
+              <a href="https://ts-api.kitledger.com/index.html" class="link-btn" target="_blank">
+                📖 API Docs
+              </a>
+              <a
+                href="https://ts-api.kitledger.com/classes/oauth2.NetSuiteAuthClient.html"
+                class="link-btn"
+                target="_blank"
+              >
+                ⚙️ OAuth2 API
+              </a>
+              <a
+                href="https://ts-api.kitledger.com/classes/oauth1.NetSuiteTBAClient.html"
+                class="link-btn"
+                target="_blank"
+              >
+                🔐 TBA API
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Kitledger is Apache-2.0 Licensed. Contributions are welcome on
+        <a href="https://github.com/kitledger/kitledger" target="_blank">GitHub</a>.
+      </p>
+    </footer>
+  </body>
+</html>

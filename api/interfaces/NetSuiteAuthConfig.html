@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
-    <title>TokenStorage | @kitledger/netsuite-auth</title>
+    <title>NetSuiteAuthConfig | @kitledger/netsuite-auth</title>
     <meta name="description" content="Documentation for @kitledger/netsuite-auth" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/style.css" />
@@ -52,51 +52,47 @@
         <div class="tsd-page-title">
           <ul class="tsd-breadcrumb">
             <li><a href="../modules.html">@kitledger/netsuite-auth</a></li>
-            <li><a href="TokenStorage.html">TokenStorage</a></li>
+            <li><a href="NetSuiteAuthConfig.html">NetSuiteAuthConfig</a></li>
           </ul>
-          <h1>Interface TokenStorage</h1>
+          <h1>Interface NetSuiteAuthConfig</h1>
         </div>
         <section class="tsd-panel tsd-comment">
           <div class="tsd-comment tsd-typography">
-            <p>
-              Storage interface for caching OAuth 2.0 access tokens. Implement this interface to
-              cache tokens in a database, redis, memory, etc.
-            </p>
+            <p>Configuration options for the NetSuite OAuth 2.0 (Client Credentials) client.</p>
           </div>
           <div class="tsd-comment tsd-typography"></div>
         </section>
         <div class="tsd-signature">
           <span class="tsd-signature-keyword">interface </span
-          ><span class="tsd-kind-interface">TokenStorage</span>
+          ><span class="tsd-kind-interface">NetSuiteAuthConfig</span>
           <span class="tsd-signature-symbol">{ </span><br /><span>    </span
-          ><a class="tsd-kind-call-signature" href="TokenStorage.html#getToken.getToken-1"
-            >getToken</a
-          ><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span
-          ><span class="tsd-signature-symbol">: </span
-          ><span class="tsd-signature-type">Promise</span
-          ><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">null</span
-          ><span class="tsd-signature-symbol"> | </span
-          ><a href="TokenData.html" class="tsd-signature-type tsd-kind-interface">TokenData</a
-          ><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">; </span
-          ><br /><span>    </span
-          ><a class="tsd-kind-call-signature" href="TokenStorage.html#saveToken.saveToken-1"
-            >saveToken</a
-          ><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">token</span
-          ><span class="tsd-signature-symbol">: </span
-          ><a href="TokenData.html" class="tsd-signature-type tsd-kind-interface">TokenData</a
-          ><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span
-          ><span class="tsd-signature-type">Promise</span
-          ><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span
-          ><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">; </span
-          ><br /><span class="tsd-signature-symbol">}</span>
+          ><a class="tsd-kind-property" href="NetSuiteAuthConfig.html#accountId">accountId</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteAuthConfig.html#certificateId"
+            >certificateId</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteAuthConfig.html#consumerKey">consumerKey</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteAuthConfig.html#consumerSecret"
+            >consumerSecret</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span>    </span
+          ><a class="tsd-kind-property" href="NetSuiteAuthConfig.html#privateKey">privateKey</a
+          ><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span
+          ><span class="tsd-signature-symbol">; </span><br /><span class="tsd-signature-symbol"
+            >}</span
+          >
         </div>
         <aside class="tsd-sources">
           <ul>
             <li>
               Defined in
               <a
-                href="https://github.com/kitledger/kitledger/blob/50693f7f35eca5d6cc815cda1810a3dfd6d1d02d/packages/netsuite-auth/src/oauth2.ts#L33"
-                >oauth2.ts:33</a
+                href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth2.ts#L6"
+                >oauth2.ts:6</a
               >
             </li>
           </ul>
@@ -119,17 +115,32 @@
               </summary>
               <div class="tsd-accordion-details">
                 <section class="tsd-index-section">
-                  <h3 class="tsd-index-heading">Methods</h3>
+                  <h3 class="tsd-index-heading">Properties</h3>
                   <div class="tsd-index-list">
-                    <a href="TokenStorage.html#getToken" class="tsd-index-link"
+                    <a href="NetSuiteAuthConfig.html#accountId" class="tsd-index-link"
                       ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>get<wbr />Token</span></a
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>account<wbr />Id</span></a
                     >
-                    <a href="TokenStorage.html#saveToken" class="tsd-index-link"
+                    <a href="NetSuiteAuthConfig.html#certificateId" class="tsd-index-link"
                       ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                        <use href="../assets/icons.svg#icon-2048"></use></svg
-                      ><span>save<wbr />Token</span></a
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>certificate<wbr />Id</span></a
+                    >
+                    <a href="NetSuiteAuthConfig.html#consumerKey" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>consumer<wbr />Key</span></a
+                    >
+                    <a href="NetSuiteAuthConfig.html#consumerSecret" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>consumer<wbr />Secret</span></a
+                    >
+                    <a href="NetSuiteAuthConfig.html#privateKey" class="tsd-index-link"
+                      ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                        <use href="../assets/icons.svg#icon-1024"></use></svg
+                      ><span>private<wbr />Key</span></a
                     >
                   </div>
                 </section>
@@ -138,135 +149,159 @@
           </section>
         </section>
         <details class="tsd-panel-group tsd-member-group tsd-accordion" open>
-          <summary class="tsd-accordion-summary" data-key="section-Methods">
+          <summary class="tsd-accordion-summary" data-key="section-Properties">
             <h2>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <use href="../assets/icons.svg#icon-chevronDown"></use>
               </svg>
-              Methods
+              Properties
             </h2>
           </summary>
           <section>
             <section class="tsd-panel tsd-member">
-              <a id="getToken" class="tsd-anchor"></a>
+              <a id="accountId" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
-                <span>get<wbr />Token</span
-                ><a href="#getToken" aria-label="Permalink" class="tsd-anchor-icon"
+                <span>account<wbr />Id</span
+                ><a href="#accountId" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
                 ></a>
               </h3>
-              <ul class="tsd-signatures">
-                <li class="tsd-signature tsd-anchor-link">
-                  <a id="getToken.getToken-1" class="tsd-anchor"></a
-                  ><span class="tsd-kind-call-signature">get<wbr />Token</span
-                  ><span class="tsd-signature-symbol">(</span
-                  ><span class="tsd-signature-symbol">)</span
-                  ><span class="tsd-signature-symbol">: </span
-                  ><span class="tsd-signature-type">Promise</span
-                  ><span class="tsd-signature-symbol">&lt;</span
-                  ><span class="tsd-signature-type">null</span
-                  ><span class="tsd-signature-symbol"> | </span
-                  ><a href="TokenData.html" class="tsd-signature-type tsd-kind-interface"
-                    >TokenData</a
-                  ><span class="tsd-signature-symbol">&gt;</span
-                  ><a href="#getToken.getToken-1" aria-label="Permalink" class="tsd-anchor-icon"
-                    ><svg viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-anchor"></use></svg
-                  ></a>
-                </li>
-                <li class="tsd-description">
-                  <div class="tsd-comment tsd-typography">
-                    <p>Retrieves the currently stored token data.</p>
-                  </div>
-                  <h4 class="tsd-returns-title">
-                    Returns <span class="tsd-signature-type">Promise</span
-                    ><span class="tsd-signature-symbol">&lt;</span
-                    ><span class="tsd-signature-type">null</span
-                    ><span class="tsd-signature-symbol"> | </span
-                    ><a href="TokenData.html" class="tsd-signature-type tsd-kind-interface"
-                      >TokenData</a
-                    ><span class="tsd-signature-symbol">&gt;</span>
-                  </h4>
-                  <p>A promise resolving to the token data or null if not cached.</p>
-                  <div class="tsd-comment tsd-typography"></div>
-                  <aside class="tsd-sources">
-                    <ul>
-                      <li>
-                        Defined in
-                        <a
-                          href="https://github.com/kitledger/kitledger/blob/50693f7f35eca5d6cc815cda1810a3dfd6d1d02d/packages/netsuite-auth/src/oauth2.ts#L38"
-                          >oauth2.ts:38</a
-                        >
-                      </li>
-                    </ul>
-                  </aside>
-                </li>
-              </ul>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">account<wbr />Id</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The NetSuite Account ID (e.g., &quot;123456&quot; or &quot;123456_SB1&quot;).</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth2.ts#L8"
+                      >oauth2.ts:8</a
+                    >
+                  </li>
+                </ul>
+              </aside>
             </section>
             <section class="tsd-panel tsd-member">
-              <a id="saveToken" class="tsd-anchor"></a>
+              <a id="certificateId" class="tsd-anchor"></a>
               <h3 class="tsd-anchor-link">
-                <span>save<wbr />Token</span
-                ><a href="#saveToken" aria-label="Permalink" class="tsd-anchor-icon"
+                <span>certificate<wbr />Id</span
+                ><a href="#certificateId" aria-label="Permalink" class="tsd-anchor-icon"
                   ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
                 ></a>
               </h3>
-              <ul class="tsd-signatures">
-                <li class="tsd-signature tsd-anchor-link">
-                  <a id="saveToken.saveToken-1" class="tsd-anchor"></a
-                  ><span class="tsd-kind-call-signature">save<wbr />Token</span
-                  ><span class="tsd-signature-symbol">(</span
-                  ><span class="tsd-kind-parameter">token</span
-                  ><span class="tsd-signature-symbol">)</span
-                  ><span class="tsd-signature-symbol">: </span
-                  ><span class="tsd-signature-type">Promise</span
-                  ><span class="tsd-signature-symbol">&lt;</span
-                  ><span class="tsd-signature-type">void</span
-                  ><span class="tsd-signature-symbol">&gt;</span
-                  ><a href="#saveToken.saveToken-1" aria-label="Permalink" class="tsd-anchor-icon"
-                    ><svg viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-anchor"></use></svg
-                  ></a>
-                </li>
-                <li class="tsd-description">
-                  <div class="tsd-comment tsd-typography"><p>Persists the token data.</p></div>
-                  <div class="tsd-parameters">
-                    <h4 class="tsd-parameters-title">Parameters</h4>
-                    <ul class="tsd-parameter-list">
-                      <li>
-                        <span
-                          ><span class="tsd-kind-parameter">token</span>:
-                          <a href="TokenData.html" class="tsd-signature-type tsd-kind-interface"
-                            >TokenData</a
-                          ></span
-                        >
-                        <div class="tsd-comment tsd-typography">
-                          <p>The token data to be saved.</p>
-                        </div>
-                        <div class="tsd-comment tsd-typography"></div>
-                      </li>
-                    </ul>
-                  </div>
-                  <h4 class="tsd-returns-title">
-                    Returns <span class="tsd-signature-type">Promise</span
-                    ><span class="tsd-signature-symbol">&lt;</span
-                    ><span class="tsd-signature-type">void</span
-                    ><span class="tsd-signature-symbol">&gt;</span>
-                  </h4>
-                  <div class="tsd-comment tsd-typography"></div>
-                  <aside class="tsd-sources">
-                    <ul>
-                      <li>
-                        Defined in
-                        <a
-                          href="https://github.com/kitledger/kitledger/blob/50693f7f35eca5d6cc815cda1810a3dfd6d1d02d/packages/netsuite-auth/src/oauth2.ts#L44"
-                          >oauth2.ts:44</a
-                        >
-                      </li>
-                    </ul>
-                  </aside>
-                </li>
-              </ul>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">certificate<wbr />Id</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The ID of the certificate record uploaded to NetSuite.</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth2.ts#L14"
+                      >oauth2.ts:14</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="consumerKey" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>consumer<wbr />Key</span
+                ><a href="#consumerKey" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">consumer<wbr />Key</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The Integration Client ID (Consumer Key) generated in NetSuite.</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth2.ts#L10"
+                      >oauth2.ts:10</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="consumerSecret" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>consumer<wbr />Secret</span
+                ><a href="#consumerSecret" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">consumer<wbr />Secret</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The Integration Client Secret (Consumer Secret) generated in NetSuite.</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth2.ts#L12"
+                      >oauth2.ts:12</a
+                    >
+                  </li>
+                </ul>
+              </aside>
+            </section>
+            <section class="tsd-panel tsd-member">
+              <a id="privateKey" class="tsd-anchor"></a>
+              <h3 class="tsd-anchor-link">
+                <span>private<wbr />Key</span
+                ><a href="#privateKey" aria-label="Permalink" class="tsd-anchor-icon"
+                  ><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg
+                ></a>
+              </h3>
+              <div class="tsd-signature">
+                <span class="tsd-kind-property">private<wbr />Key</span
+                ><span class="tsd-signature-symbol">:</span>
+                <span class="tsd-signature-type">string</span>
+              </div>
+              <div class="tsd-comment tsd-typography">
+                <p>The PEM-formatted private key corresponding to the uploaded certificate.</p>
+              </div>
+              <div class="tsd-comment tsd-typography"></div>
+              <aside class="tsd-sources">
+                <ul>
+                  <li>
+                    Defined in
+                    <a
+                      href="https://github.com/kitledger/kitledger/blob/a6526159f6aa9e9bc4b08a8ba4053ba892c420db/packages/netsuite-auth/src/oauth2.ts#L16"
+                      >oauth2.ts:16</a
+                    >
+                  </li>
+                </ul>
+              </aside>
             </section>
           </section>
         </details>
@@ -393,20 +428,32 @@
             </summary>
             <div class="tsd-accordion-details">
               <details open class="tsd-accordion tsd-page-navigation-section">
-                <summary class="tsd-accordion-summary" data-key="tsd-otp-Methods">
+                <summary class="tsd-accordion-summary" data-key="tsd-otp-Properties">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                     <use href="../assets/icons.svg#icon-chevronDown"></use></svg
-                  >Methods
+                  >Properties
                 </summary>
                 <div>
-                  <a href="#getToken" class=""
+                  <a href="#accountId" class=""
                     ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>get<wbr />Token</span></a
-                  ><a href="#saveToken" class=""
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>account<wbr />Id</span></a
+                  ><a href="#certificateId" class=""
                     ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
-                      <use href="../assets/icons.svg#icon-2048"></use></svg
-                    ><span>save<wbr />Token</span></a
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>certificate<wbr />Id</span></a
+                  ><a href="#consumerKey" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>consumer<wbr />Key</span></a
+                  ><a href="#consumerSecret" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>consumer<wbr />Secret</span></a
+                  ><a href="#privateKey" class=""
+                    ><svg class="tsd-kind-icon" viewBox="0 0 24 24">
+                      <use href="../assets/icons.svg#icon-1024"></use></svg
+                    ><span>private<wbr />Key</span></a
                   >
                 </div>
               </details>

@@ -12,9 +12,7 @@
     "test": "vitest run",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
-    "docs:dev": "pnpm --filter @kitledger/docs dev",
-    "docs:build": "pnpm --filter @kitledger/docs build",
-    "docs:preview": "pnpm --filter @kitledger/docs preview"
+    "docs:build": "pnpm --filter typedoc-build build"
   },
   "devDependencies": {
     "oxfmt": "^0.59.0",
