@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { sign } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import {
   NetSuiteTBAClient,
   NetSuiteAuthClient,
@@ -9,6 +9,9 @@ import {
 
 // Mock jsonwebtoken
 vi.mock("jsonwebtoken", () => ({
+  default: {
+    sign: vi.fn(() => "mock-jwt-token"),
+  },
   sign: vi.fn(() => "mock-jwt-token"),
 }));
 
@@ -102,7 +105,7 @@ describe("NetSuiteAuthClient", () => {
         expiresAt: expect.any(Number),
       }),
     );
-    expect(sign).toHaveBeenCalledTimes(1);
+    expect(jwt.sign).toHaveBeenCalledTimes(1);
   });
 
   it("should fetch a new token if storage token is expired", async () => {

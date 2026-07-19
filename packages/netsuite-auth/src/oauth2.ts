@@ -1,4 +1,4 @@
-import { sign } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 export interface NetSuiteAuthConfig {
   accountId: string;
@@ -47,7 +47,7 @@ export class NetSuiteAuthClient {
       iat: now,
     };
 
-    return sign(payload, this.config.privateKey, {
+    return jwt.sign(payload, this.config.privateKey, {
       algorithm: "PS256",
       header: header,
       allowInvalidAsymmetricKeyTypes: true,
