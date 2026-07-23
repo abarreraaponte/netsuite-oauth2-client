@@ -23,14 +23,16 @@
     "./oauth2": {
       "types": "./dist/oauth2.d.mts",
       "import": "./dist/oauth2.mjs"
-    }
+    },
+    "./skill": "./skills/netsuite-oauth2-client/SKILL.md"
   },
   "scripts": {
     "build": "tsdown",
     "clean": "rm -rf dist",
     "test": "vitest run",
     "format": "oxfmt --write .",
-    "format:check": "oxfmt --check ."
+    "format:check": "oxfmt --check .",
+    "sample": "tsx --env-file=.env sample.ts"
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.2"
@@ -39,6 +41,7 @@
     "@types/jsonwebtoken": "^9.0.6",
     "oxfmt": "^0.59.0",
     "tsdown": "^0.22.9",
+    "tsx": "^4.19.1",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10"
   },

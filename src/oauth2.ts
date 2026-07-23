@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 /**
  * Configuration options for the NetSuite OAuth 2.0 (Client Credentials) client.
  */
-export interface NetSuiteAuthConfig {
+export interface NetSuiteClientCredentialsConfig {
   /** The NetSuite Account ID (e.g., "123456" or "123456_SB1"). */
   accountId: string;
   /** The Integration Client ID (Consumer Key) generated in NetSuite. */
@@ -48,9 +48,9 @@ export interface TokenStorage {
  * NetSuite OAuth 2.0 Client Credentials Authentication Client.
  * Implements the secure M2M (machine-to-machine) JWT bearer flow to fetch and manage NetSuite REST API access tokens.
  */
-export class NetSuiteAuthClient {
+export class NetSuiteClientCredentialsClient {
   private tokenUrl: string;
-  private config: NetSuiteAuthConfig;
+  private config: NetSuiteClientCredentialsConfig;
   private storage: TokenStorage;
 
   /**
@@ -59,7 +59,7 @@ export class NetSuiteAuthClient {
    * @param config The OAuth 2.0 configurations.
    * @param storage The token storage instance for caching.
    */
-  constructor(config: NetSuiteAuthConfig, storage: TokenStorage) {
+  constructor(config: NetSuiteClientCredentialsConfig, storage: TokenStorage) {
     this.config = config;
     this.storage = storage;
     this.tokenUrl = `https://${this.config.accountId.toUpperCase()}.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token`;

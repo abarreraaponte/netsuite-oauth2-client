@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import jwt from "jsonwebtoken";
-import { NetSuiteAuthClient, type TokenData, type TokenStorage } from "./index.js";
+import { NetSuiteClientCredentialsClient, type TokenData, type TokenStorage } from "./index.js";
 
 // Mock jsonwebtoken
 vi.mock("jsonwebtoken", () => ({
@@ -10,7 +10,7 @@ vi.mock("jsonwebtoken", () => ({
   sign: vi.fn(() => "mock-jwt-token"),
 }));
 
-describe("NetSuiteAuthClient", () => {
+describe("NetSuiteClientCredentialsClient", () => {
   let mockStorage: TokenStorage;
   let storedToken: TokenData | null = null;
 
@@ -31,7 +31,7 @@ describe("NetSuiteAuthClient", () => {
       expiresAt: Date.now() + 1000 * 60 * 10, // 10 minutes from now
     };
 
-    const client = new NetSuiteAuthClient(
+    const client = new NetSuiteClientCredentialsClient(
       {
         accountId: "123456-sb1",
         consumerKey: "ckey",
@@ -49,7 +49,7 @@ describe("NetSuiteAuthClient", () => {
   });
 
   it("should fetch a new token, save it, and return it if storage is empty", async () => {
-    const client = new NetSuiteAuthClient(
+    const client = new NetSuiteClientCredentialsClient(
       {
         accountId: "123456-sb1",
         consumerKey: "ckey",
@@ -84,7 +84,7 @@ describe("NetSuiteAuthClient", () => {
       expiresAt: Date.now() - 1000, // expired 1s ago
     };
 
-    const client = new NetSuiteAuthClient(
+    const client = new NetSuiteClientCredentialsClient(
       {
         accountId: "123456-sb1",
         consumerKey: "ckey",

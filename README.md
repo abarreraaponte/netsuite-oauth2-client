@@ -4,9 +4,10 @@
 
 ---
 
-High-performance, type-safe, and lightweight OAuth 2.0 Client Credentials client for Oracle NetSuite, built for server-to-server (M2M) integrations.
+High-performance, type-safe, and lightweight OAuth 2.0 Client Credentials client for Oracle NetSuite, built specifically for server-to-server (M2M) integrations.
 
-This package implements the secure NetSuite client credentials flow with JWT bearer assertions (PS256) and includes built-in caching support to prevent duplicate token request overhead.
+> [!NOTE]
+> This library supports **only** the OAuth 2.0 Client Credentials flow (using private key JWT assertions). Other flows like Authorization Code or Resource Owner Password Credentials are not supported.
 
 ---
 
@@ -34,7 +35,11 @@ npm install netsuite-oauth2-client
 Configure the client by supplying your NetSuite Account ID, Consumer Key, Consumer Secret, Certificate ID, and Private Key:
 
 ```typescript
-import { NetSuiteAuthClient, type TokenStorage, type TokenData } from "netsuite-oauth2-client";
+import {
+  NetSuiteClientCredentialsClient,
+  type TokenStorage,
+  type TokenData,
+} from "netsuite-oauth2-client";
 
 // Implement the TokenStorage interface to cache tokens
 class MemoryTokenStorage implements TokenStorage {
@@ -49,7 +54,7 @@ class MemoryTokenStorage implements TokenStorage {
   }
 }
 
-const authClient = new NetSuiteAuthClient(
+const authClient = new NetSuiteClientCredentialsClient(
   {
     accountId: "123456_SB1",
     consumerKey: "YOUR_CONSUMER_KEY",
@@ -72,6 +77,24 @@ const response = await fetch(
   },
 );
 ```
+
+---
+
+## Local Sample Script
+
+To test the integration locally without setting up a pnpm workspace:
+
+1. Copy the example env file at the root:
+   ```bash
+   cp .env.example .env
+   ```
+2. Fill in the required NetSuite credentials in `.env`.
+3. Run the sample script:
+   ```bash
+   pnpm run sample
+   # or
+   npm run sample
+   ```
 
 ---
 
