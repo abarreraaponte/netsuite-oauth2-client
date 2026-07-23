@@ -1,6 +1,6 @@
 {
   "name": "@abarreraaponte/netsuite-oauth2-client",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "High-performance OAuth 2.0 Client Credentials client for Oracle NetSuite, featuring automatic token generation and caching.",
   "keywords": [
     "client-credentials",
