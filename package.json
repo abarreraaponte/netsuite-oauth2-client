@@ -1,20 +1,42 @@
 {
-  "name": "kitledger",
+  "name": "netsuite-oauth2-client",
   "version": "0.1.0",
-  "description": "",
-  "keywords": [],
+  "description": "High-performance OAuth 2.0 Client Credentials client for Oracle NetSuite, featuring automatic token generation and caching.",
+  "keywords": [
+    "client-credentials",
+    "jwt",
+    "netsuite",
+    "oauth2",
+    "restlet",
+    "suitetalk"
+  ],
   "license": "Apache-2.0",
   "author": "Alejandro Barrera Aponte",
   "type": "module",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./oauth2": {
+      "types": "./dist/oauth2.d.mts",
+      "import": "./dist/oauth2.mjs"
+    }
+  },
   "scripts": {
-    "build": "pnpm -r build",
-    "clean": "pnpm -r clean",
+    "build": "tsdown",
+    "clean": "rm -rf dist",
     "test": "vitest run",
     "format": "oxfmt --write .",
-    "format:check": "oxfmt --check .",
-    "docs:build": "pnpm --filter typedoc-build build"
+    "format:check": "oxfmt --check ."
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
     "oxfmt": "^0.59.0",
     "tsdown": "^0.22.9",
     "typescript": "^7.0.2",

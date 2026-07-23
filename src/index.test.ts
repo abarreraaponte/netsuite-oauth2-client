@@ -1,11 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import jwt from "jsonwebtoken";
-import {
-  NetSuiteTBAClient,
-  NetSuiteAuthClient,
-  type TokenData,
-  type TokenStorage,
-} from "./index.js";
+import { NetSuiteAuthClient, type TokenData, type TokenStorage } from "./index.js";
 
 // Mock jsonwebtoken
 vi.mock("jsonwebtoken", () => ({
@@ -14,31 +9,6 @@ vi.mock("jsonwebtoken", () => ({
   },
   sign: vi.fn(() => "mock-jwt-token"),
 }));
-
-describe("NetSuiteTBAClient", () => {
-  it("should generate OAuth 1.0a authorization header with HMAC-SHA256 signature", () => {
-    const client = new NetSuiteTBAClient({
-      accountId: "123456-sb1",
-      consumerKey: "ckey",
-      consumerSecret: "csecret",
-      tokenId: "tkey",
-      tokenSecret: "tsecret",
-    });
-
-    const header = client.getAuthorizationHeader(
-      "GET",
-      "https://123456-sb1.restlets.api.netsuite.com/services/restlet/custom/script",
-    );
-
-    expect(header).toContain('OAuth realm="123456_SB1"');
-    expect(header).toContain('oauth_consumer_key="ckey"');
-    expect(header).toContain('oauth_token="tkey"');
-    expect(header).toContain('oauth_signature_method="HMAC-SHA256"');
-    expect(header).toContain("oauth_signature=");
-    expect(header).toContain("oauth_nonce=");
-    expect(header).toContain("oauth_timestamp=");
-  });
-});
 
 describe("NetSuiteAuthClient", () => {
   let mockStorage: TokenStorage;

@@ -1,68 +1,138 @@
-# Kitledger
+# netsuite-oauth2-client
 
-> **Modern developer utilities for business management systems.** Built for functional consultants, technical architects, power users, and autonomous AI agents.
-
-Kitledger is a collection of high-performance, type-safe npm packages designed to simplify integrations, scripting, and automations within enterprise resource planning (ERP), customer relationship management (CRM), and business software ecosystems.
-
-Enterprise software is notoriously difficult to integrate with. Kitledger bridges the gap by delivering developer-friendly, zero-bloat, ESM-first utilities that are compatible with modern runtimes (Node.js, Edge, Serverless) and easily understood by AI agent toolchains.
+> **Legal Disclaimer:** NetSuite is a registered trademark of Oracle Corporation. This project is an independent open-source library and is not affiliated with, sponsored by, or endorsed by Oracle Corporation or NetSuite.
 
 ---
 
-## Packages
+High-performance, type-safe, and lightweight OAuth 2.0 Client Credentials client for Oracle NetSuite, built for server-to-server (M2M) integrations.
 
-| Package                                                          | Version | Description                                                                  |
-| :--------------------------------------------------------------- | :------ | :--------------------------------------------------------------------------- |
-| [`@kitledger/netsuite-auth`](./packages/netsuite-auth/README.md) | `1.0.0` | Authentication clients for Oracle NetSuite (OAuth 1.0a TBA & OAuth 2.0 JWT). |
+This package implements the secure NetSuite client credentials flow with JWT bearer assertions (PS256) and includes built-in caching support to prevent duplicate token request overhead.
 
 ---
 
-## Philosophy
+## Features
 
-- **Functional & Technical Alignment:** Designed to be accessible to technical consultants and power users, not just core software engineers.
-- **AI Agent-Ready:** Clean APIs, strict types, and lightweight footprints that allow LLM-based autonomous agents to easily reason about and write integration code.
-- **Modern Tech Stack:** Powered by **TypeScript 7**, compiled with **tsdown** (Rolldown/Oxc), formatted with **oxfmt**, and tested with **Vitest**.
-- **Minimal Dependencies:** Keeping dependencies to an absolute minimum to avoid supply-chain bloat and compile-time issues.
+- **ESM-First & Lightweight:** Fully optimized for ESM, zero external bloating dependencies, and compatible with modern runtimes (Node.js, serverless, edge).
+- **Asymmetric JWT Assertion:** Implements robust token assertions using private PEM keys and JSON Web Tokens.
+- **Pluggable Token Caching:** Simple, standard caching interfaces (`TokenStorage`) allowing you to plug in Redis, SQL database, Prisma, or in-memory storages.
+- **AI Agent Compatible:** Clean TypeScript types and docstrings making it perfectly suited for LLM toolchains and autonomous coding agents.
 
 ---
 
-## Development
-
-This repository is structured as a `pnpm` monorepo workspace.
-
-### Setup
-
-Ensure you have `pnpm` (v11+) installed:
+## Installation
 
 ```bash
-pnpm install
+pnpm add netsuite-oauth2-client
+# or
+npm install netsuite-oauth2-client
 ```
 
-### Build Packages
+---
 
-Build all workspace packages:
+## Usage
 
-```bash
-pnpm build
+Configure the client by supplying your NetSuite Account ID, Consumer Key, Consumer Secret, Certificate ID, and Private Key:
+
+```typescript
+import { NetSuiteAuthClient, type TokenStorage, type TokenData } from "netsuite-oauth2-client";
+
+// Implement the TokenStorage interface to cache tokens
+class MemoryTokenStorage implements TokenStorage {
+  private cache: TokenData | null = null;
+
+  async getToken(): Promise<TokenData | null> {
+    return this.cache;
+  }
+
+  async saveToken(token: TokenData): Promise<void> {
+    this.cache = token;
+  }
+}
+
+const authClient = new NetSuiteAuthClient(
+  {
+    accountId: "123456_SB1",
+    consumerKey: "YOUR_CONSUMER_KEY",
+    consumerSecret: "YOUR_CONSUMER_SECRET",
+    certificateId: "YOUR_CERTIFICATE_ID",
+    privateKey: `-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----`,
+  },
+  new MemoryTokenStorage(),
+);
+
+// Automatically returns the cached token, or fetches a new one if expired
+const accessToken = await authClient.getCurrentToken();
+
+const response = await fetch(
+  "https://123456-sb1.suitetalk.api.netsuite.com/services/rest/record/v1/metadata-catalog",
+  {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  },
+);
 ```
 
-### Run Tests
+---
 
-Execute tests across the workspace:
+## Caching Implementations
 
-```bash
-pnpm test
+### Redis Cache Storage
+
+```typescript
+import { createClient } from "redis";
+import type { TokenStorage, TokenData } from "netsuite-oauth2-client";
+
+class RedisTokenStorage implements TokenStorage {
+  private client = createClient();
+  private key = "netsuite:oauth_token";
+
+  async getToken(): Promise<TokenData | null> {
+    const data = await this.client.get(this.key);
+    if (!data) return null;
+    return JSON.parse(data);
+  }
+
+  async saveToken(token: TokenData): Promise<void> {
+    const ttlSeconds = Math.max(1, Math.floor((token.expiresAt - Date.now()) / 1000));
+    await this.client.setEx(this.key, ttlSeconds, JSON.stringify(token));
+  }
+}
 ```
 
-### Format Code
+### Prisma SQL Cache Storage
 
-Check and apply formatting via the Oxc formatter:
+```typescript
+import { PrismaClient } from "@prisma/client";
+import type { TokenStorage, TokenData } from "netsuite-oauth2-client";
 
-```bash
-pnpm format
+class PrismaTokenStorage implements TokenStorage {
+  private prisma = new PrismaClient();
+
+  async getToken(): Promise<TokenData | null> {
+    const record = await this.prisma.netSuiteToken.findFirst({
+      orderBy: { expiresAt: "desc" },
+    });
+    if (!record) return null;
+    return {
+      accessToken: record.accessToken,
+      expiresAt: Number(record.expiresAt),
+    };
+  }
+
+  async saveToken(token: TokenData): Promise<void> {
+    await this.prisma.netSuiteToken.create({
+      data: {
+        accessToken: token.accessToken,
+        expiresAt: token.expiresAt,
+      },
+    });
+  }
+}
 ```
 
 ---
 
 ## License
 
-Kitledger is open-source software licensed under the [Apache-2.0 License](./LICENSE).
+This package is open-source software licensed under the [Apache-2.0 License](./LICENSE).

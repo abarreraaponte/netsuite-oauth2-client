@@ -1,4 +1,4 @@
-name: CI & Deployment
+name: CI
 
 on:
   push:
@@ -8,12 +8,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build-and-test:
@@ -42,34 +36,5 @@ jobs:
       - name: Run tests
         run: pnpm test
 
-      - name: Build packages
+      - name: Build package
         run: pnpm build
-
-      - name: Build API Reference
-        run: pnpm docs:build
-
-      - name: Prepare Website Deployment
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          mkdir deploy-site
-          cp index.html deploy-site/
-          cp -r brand deploy-site/
-          cp -r api deploy-site/
-
-      - name: Upload Pages Artifact
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./deploy-site
-
-  deploy-pages:
-    needs: build-and-test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
