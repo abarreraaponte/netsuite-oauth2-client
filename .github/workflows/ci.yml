@@ -38,3 +38,41 @@ jobs:
 
       - name: Build package
         run: pnpm build
+
+  publish:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.15.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: "pnpm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build package
+        run: pnpm build
+
+      - name: Publish to npm
+        run: |
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          PUBLISHED_VERSION=$(npm view @abarreraaponte/netsuite-oauth2-client version 2>/dev/null || echo "0.0.0")
+          if [ "$CURRENT_VERSION" != "$PUBLISHED_VERSION" ]; then
+            pnpm publish --no-git-checks --access public
+          else
+            echo "Version $CURRENT_VERSION is already published. Skipping."
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

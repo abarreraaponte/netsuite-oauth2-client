@@ -1,4 +1,4 @@
-# netsuite-oauth2-client
+# @abarreraaponte/netsuite-oauth2-client
 
 > **Legal Disclaimer:** NetSuite is a registered trademark of Oracle Corporation. This project is an independent open-source library and is not affiliated with, sponsored by, or endorsed by Oracle Corporation or NetSuite.
 
@@ -23,9 +23,9 @@ High-performance, type-safe, and lightweight OAuth 2.0 Client Credentials client
 ## Installation
 
 ```bash
-pnpm add netsuite-oauth2-client
+pnpm add @abarreraaponte/netsuite-oauth2-client
 # or
-npm install netsuite-oauth2-client
+npm install @abarreraaponte/netsuite-oauth2-client
 ```
 
 ---
@@ -39,7 +39,7 @@ import {
   NetSuiteClientCredentialsClient,
   type TokenStorage,
   type TokenData,
-} from "netsuite-oauth2-client";
+} from "@abarreraaponte/netsuite-oauth2-client";
 
 // Implement the TokenStorage interface to cache tokens
 class MemoryTokenStorage implements TokenStorage {
@@ -104,7 +104,7 @@ To test the integration locally without setting up a pnpm workspace:
 
 ```typescript
 import { createClient } from "redis";
-import type { TokenStorage, TokenData } from "netsuite-oauth2-client";
+import type { TokenStorage, TokenData } from "@abarreraaponte/netsuite-oauth2-client";
 
 class RedisTokenStorage implements TokenStorage {
   private client = createClient();
@@ -127,7 +127,7 @@ class RedisTokenStorage implements TokenStorage {
 
 ```typescript
 import { PrismaClient } from "@prisma/client";
-import type { TokenStorage, TokenData } from "netsuite-oauth2-client";
+import type { TokenStorage, TokenData } from "@abarreraaponte/netsuite-oauth2-client";
 
 class PrismaTokenStorage implements TokenStorage {
   private prisma = new PrismaClient();
