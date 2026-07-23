@@ -14,6 +14,12 @@ export interface NetSuiteClientCredentialsConfig {
   certificateId: string;
   /** The PEM-formatted private key corresponding to the uploaded certificate. */
   privateKey: string;
+  /**
+   * The signing algorithm to use for the JWT client assertion.
+   * NetSuite supports: "PS256", "PS384", "PS512", "ES256", "ES384", "ES512".
+   * @default "PS256"
+   */
+  algorithm?: "PS256" | "PS384" | "PS512" | "ES256" | "ES384" | "ES512";
 }
 
 /**
@@ -62,16 +68,18 @@ export class NetSuiteClientCredentialsClient {
   constructor(config: NetSuiteClientCredentialsConfig, storage: TokenStorage) {
     this.config = config;
     this.storage = storage;
-    this.tokenUrl = `https://${this.config.accountId.toUpperCase()}.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token`;
+    const accountSubdomain = this.config.accountId.toLowerCase().replace(/_/g, "-");
+    this.tokenUrl = `https://${accountSubdomain}.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token`;
   }
 
   private generateJWT(): string {
     const now = Math.floor(Date.now() / 1000);
     const exp = now + 45 * 60;
+    const algorithm = this.config.algorithm || "PS256";
 
     const header = {
       typ: "JWT",
-      alg: "PS256",
+      alg: algorithm,
       kid: this.config.certificateId,
     };
 
@@ -84,7 +92,7 @@ export class NetSuiteClientCredentialsClient {
     };
 
     return jwt.sign(payload, this.config.privateKey, {
-      algorithm: "PS256",
+      algorithm: algorithm,
       header: header,
       allowInvalidAsymmetricKeyTypes: true,
     });

@@ -105,4 +105,61 @@ describe("NetSuiteClientCredentialsClient", () => {
     expect(mockStorage.getToken).toHaveBeenCalledTimes(1);
     expect(mockStorage.saveToken).toHaveBeenCalled();
   });
+
+  it("should format accountId correctly replacing underscores with hyphens and converting to lowercase", async () => {
+    const client = new NetSuiteClientCredentialsClient(
+      {
+        accountId: "123456_SB1",
+        consumerKey: "ckey",
+        consumerSecret: "csecret",
+        certificateId: "cert-id",
+        privateKey: "private-key",
+      },
+      mockStorage,
+    );
+
+    const mockFetch = vi.fn().mockResolvedValue({
+      json: async () => ({ access_token: "newly-fetched-token" }),
+    });
+    vi.stubGlobal("fetch", mockFetch);
+
+    await client.getCurrentToken();
+
+    expect(mockFetch).toHaveBeenCalledWith(
+      "https://123456-sb1.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token",
+      expect.any(Object),
+    );
+  });
+
+  it("should use the configured signing algorithm in jwt.sign", async () => {
+    const client = new NetSuiteClientCredentialsClient(
+      {
+        accountId: "123456-sb1",
+        consumerKey: "ckey",
+        consumerSecret: "csecret",
+        certificateId: "cert-id",
+        privateKey: "private-key",
+        algorithm: "ES256",
+      },
+      mockStorage,
+    );
+
+    const mockFetch = vi.fn().mockResolvedValue({
+      json: async () => ({ access_token: "newly-fetched-token" }),
+    });
+    vi.stubGlobal("fetch", mockFetch);
+
+    await client.getCurrentToken();
+
+    expect(jwt.sign).toHaveBeenCalledWith(
+      expect.any(Object),
+      "private-key",
+      expect.objectContaining({
+        algorithm: "ES256",
+        header: expect.objectContaining({
+          alg: "ES256",
+        }),
+      }),
+    );
+  });
 });

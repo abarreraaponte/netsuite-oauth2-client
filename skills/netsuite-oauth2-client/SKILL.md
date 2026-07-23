@@ -51,3 +51,10 @@ import { NetSuiteClientCredentialsClient } from "@abarreraaponte/netsuite-oauth2
     }
   }
   ```
+
+### 4. Dynamic Signing Algorithms
+
+Specify the signature algorithm corresponding to your certificate type (e.g., Elliptic Curve or RSA-PSS) using the optional `algorithm` property inside the client configurations:
+
+- **Default:** `"PS256"`
+- **Supported:** `"PS256"`, `"PS384"`, `"PS512"`, `"ES256"`, `"ES384"`, `"ES512"`

@@ -80,6 +80,44 @@ const response = await fetch(
 
 ---
 
+## Configuration Options
+
+The `NetSuiteClientCredentialsClient` constructor accepts a configuration object matching the `NetSuiteClientCredentialsConfig` interface:
+
+| Option           | Type     | Required | Description                                                                                                           |
+| ---------------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `accountId`      | `string` | **Yes**  | Your NetSuite Account ID (e.g. `123456` or sandbox `123456_SB1`). Normalizes internally.                              |
+| `consumerKey`    | `string` | **Yes**  | The client ID / Integration Consumer Key generated in NetSuite.                                                       |
+| `consumerSecret` | `string` | **Yes**  | The client secret / Integration Consumer Secret generated in NetSuite.                                                |
+| `certificateId`  | `string` | **Yes**  | The Certificate ID (`kid`) from the NetSuite Client Credentials Setup mapping.                                        |
+| `privateKey`     | `string` | **Yes**  | The PEM-formatted private key corresponding to your certificate.                                                      |
+| `algorithm`      | `string` | No       | JWT signing algorithm. Options: `"PS256"`, `"PS384"`, `"PS512"`, `"ES256"`, `"ES384"`, `"ES512"`. Default: `"PS256"`. |
+
+---
+
+## Generating Keys & Certificates (OpenSSL)
+
+Depending on your security architecture, you can use either **RSA-PSS** (recommended for RSA) or **ECDSA** (Elliptic Curve, offering faster signing and smaller keys) signatures.
+
+Generate your private key and self-signed certificate using the corresponding OpenSSL commands:
+
+| Algorithm | Key Type        | Private Key Generation                                                                 | Self-Signed Certificate (Public)                                         |
+| --------- | --------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **PS256** | RSA (2048-bit)  | `openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:2048`        | `openssl req -new -x509 -key private.pem -out certificate.pem -days 365` |
+| **PS384** | RSA (3072-bit)  | `openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:3072`        | `openssl req -new -x509 -key private.pem -out certificate.pem -days 365` |
+| **PS512** | RSA (4096-bit)  | `openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:4096`        | `openssl req -new -x509 -key private.pem -out certificate.pem -days 365` |
+| **ES256** | EC (prime256v1) | `openssl genpkey -algorithm EC -out private.pem -pkeyopt ec_paramgen_curve:prime256v1` | `openssl req -new -x509 -key private.pem -out certificate.pem -days 365` |
+| **ES384** | EC (secp384r1)  | `openssl genpkey -algorithm EC -out private.pem -pkeyopt ec_paramgen_curve:secp384r1`  | `openssl req -new -x509 -key private.pem -out certificate.pem -days 365` |
+| **ES512** | EC (secp521r1)  | `openssl genpkey -algorithm EC -out private.pem -pkeyopt ec_paramgen_curve:secp521r1`  | `openssl req -new -x509 -key private.pem -out certificate.pem -days 365` |
+
+### Setting Up in NetSuite:
+
+1. Upload the generated `certificate.pem` to your NetSuite mapping settings under **Setup > Integration > OAuth 2.0 Client Credentials Setup**.
+2. Copy the resulting **Certificate ID** mapping.
+3. Load the `private.pem` content (private key) in your backend environment variables to initialize the client.
+
+---
+
 ## Local Sample Script
 
 To test the integration locally without setting up a pnpm workspace:
